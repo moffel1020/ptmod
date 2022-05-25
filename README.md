@@ -1,11 +1,12 @@
 # ptmod
+Mod loader for Parkour Tag, including console and map editor
 ## Installing
 1. Download the [latest release](https://github.com/moffel1020/ptmod/releases)
 2. Extract the .zip
 3. Put the files inside your Parkour Tag folder
 
 Your parkour tag folder should look like this:  
-![image](https://user-images.githubusercontent.com/100964263/169706878-854f73c9-4b34-4802-97dc-14e3852d6c17.png)
+![image](https://user-images.githubusercontent.com/100964263/170320121-b6c7500c-8402-41f3-a5af-8ac9ac3f2ced.png)
 
 ## Usage
 To play the game with mods just launch the game like you normally would  
@@ -24,7 +25,7 @@ Editing and saving existing maps is not supported, so make a new map or load one
   - Right click: edit selected object
   - X and Z: cycle through building objects (bottom right of your screen)
 
-### console commands
+#### console commands
 
 - savemap \<name\>      save map by name
 - loadmap \<name\>      load map by name
