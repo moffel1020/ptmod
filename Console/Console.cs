@@ -24,7 +24,6 @@ namespace PTconsole
         private void Awake()
         {
             CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US", false);
-            Application.logMessageReceived += LogCallback;
         }
 
         private void Start()
@@ -35,6 +34,7 @@ namespace PTconsole
             i_history = new List<string>();
             ConsoleCommand.commandList = new List<ConsoleCommand>();
             commands.Register();
+            Application.logMessageReceived += LogCallback;
         }
 
 
