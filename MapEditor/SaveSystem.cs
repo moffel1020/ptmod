@@ -147,29 +147,9 @@ namespace MapEditor
         public static void ClearMap()
         {
             sObjectList.Clear();
-            GameObject[] goList = GameObject.FindObjectsOfType<GameObject>();
 
-            foreach (GameObject go in goList)
-            {
-                if (Reference.refDict.ContainsKey(go.name) || go.name.StartsWith("Reference")) continue;
-
-                if (go.activeInHierarchy && go.tag == "Obstacle")
-                    go.SetActive(false);
-            }
-
-            // delete stuff that doesnt have the obstacle tag for some reason
-            string[] toDelete = { "Cube", "Icosphere", "def", "Small", "stadium", "sphere", "Jumbo", "Arch", "strut", "TimePanel", "floor " };
-
-            foreach (GameObject go in goList)
-            {
-                if (Reference.refDict.ContainsKey(go.name) || go.name.StartsWith("Reference")) continue;
-
-                foreach (string obj in toDelete)
-                {
-                    if (go.name.StartsWith(obj))
-                        go.SetActive(false);
-                }
-            }
+            GameObject obstacles = GameObject.Find("Obstacles");
+            obstacles.SetActive(false);
 
             Debug.Log("Cleared map");
         }
