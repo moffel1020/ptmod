@@ -1,4 +1,5 @@
 # ptmod
+Mod loader for Parkour Tag, including console and map editor
 ## Installing
 1. Download the [latest release](https://github.com/moffel1020/ptmod/releases)
 2. Extract the .zip
