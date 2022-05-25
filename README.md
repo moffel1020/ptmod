@@ -25,7 +25,7 @@ Editing and saving existing maps is not supported, so make a new map or load one
   - Right click: edit selected object
   - X and Z: cycle through building objects (bottom right of your screen)
 
-### console commands
+#### console commands
 
 - savemap \<name\>      save map by name
 - loadmap \<name\>      load map by name
