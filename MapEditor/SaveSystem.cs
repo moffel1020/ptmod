@@ -3,7 +3,7 @@ using System.Collections;
 using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using PTconsole;
+using System.Linq;
 using PTmod;
 
 
@@ -78,7 +78,18 @@ namespace MapEditor
             }
 
             Debug.Log("Loading map " + filename);
-            SceneManager.LoadScene(1);
+
+            try
+            {
+                int sceneNumber = int.Parse(File.ReadLines($"{MapEditor.CustomMapDir}\\{filename}.txt").First());
+                SceneManager.LoadScene(sceneNumber);
+            }
+            catch 
+            {
+                Debug.LogError("could not find scene number in file, loading scene 1 instead");
+                SceneManager.LoadScene(1);
+            }
+            
             yield return new WaitForEndOfFrame();
             yield return new WaitForEndOfFrame();
             Core.UnlockCamera();
@@ -89,7 +100,8 @@ namespace MapEditor
             foreach (string line in file)
             {
                 string[] lineArr = line.Split(' ');
-
+                if (lineArr.Length < 16) continue;
+                
                 string name = lineArr[0];
                 string reference = lineArr[1];
                 Vector3 position = new Vector3(float.Parse(lineArr[2]), float.Parse(lineArr[3]), float.Parse(lineArr[4]));
@@ -107,6 +119,7 @@ namespace MapEditor
 
             string filepath = $"{MapEditor.CustomMapDir}\\{filename}.txt";
             List<string> toWrite = new List<string>();
+            toWrite.Add(SceneManager.GetActiveScene().buildIndex.ToString());
 
             foreach(SaveableObject o in sObjectList)
             {
@@ -133,17 +146,7 @@ namespace MapEditor
             Debug.Log($"map saved to {MapEditor.CustomMapDir}\\{filename}.txt");
         }
 
-        public static IEnumerator NewMap()
-        {
-            SceneManager.LoadScene(1);
-            yield return new WaitForEndOfFrame();
-            yield return new WaitForEndOfFrame();
-            Core.UnlockCamera();
-            ClearMap();
-            sObjectList.Clear();
-        }
-
-        public static IEnumerator NewMap(int scene)
+        public static IEnumerator NewMap(int scene = 1)
         {
             SceneManager.LoadScene(scene);
             yield return new WaitForEndOfFrame();
@@ -157,9 +160,7 @@ namespace MapEditor
         public static void ClearMap()
         {
             sObjectList.Clear();
-
-            GameObject obstacles = GameObject.Find("Obstacles");
-            obstacles.SetActive(false);
+            GameObject.Find("Obstacles").SetActive(false);
 
             Debug.Log("Cleared map");
         }
