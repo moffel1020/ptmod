@@ -14,6 +14,7 @@ namespace MapEditor
         private static ConsoleCommand clearmap;
         private static ConsoleCommand loadmap;
         private static ConsoleCommand savemap;
+        private static ConsoleCommand newmap;
         private static ConsoleCommand setHighlightColor;
         private static ConsoleCommand setEditReach;
         private static ConsoleCommand printrefs;
@@ -49,6 +50,15 @@ namespace MapEditor
             {
                 FreeCam.CamSpeed = float.Parse(Args[0]);
             }, "camspeed <speed>");
+            
+            newmap = new ConsoleCommand("newmap", "create new map", (string[] Args) => 
+            {
+                if (Args.Length > 0) {
+                    StartCoroutine(SaveSystem.NewMap(int.Parse(Args[0])));
+                } else {
+                    StartCoroutine(SaveSystem.NewMap());
+                }
+            }, "newmap [scenenumber]");
         }
 
         private static void PrintMaps()

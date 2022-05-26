@@ -143,6 +143,16 @@ namespace MapEditor
             sObjectList.Clear();
         }
 
+        public static IEnumerator NewMap(int scene)
+        {
+            SceneManager.LoadScene(scene);
+            yield return new WaitForEndOfFrame();
+            yield return new WaitForEndOfFrame();
+            Core.UnlockCamera();
+            ClearMap();
+            sObjectList.Clear();
+        }
+
 
         public static void ClearMap()
         {
