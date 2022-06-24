@@ -61,7 +61,7 @@ namespace PTmod
             var mods = ModManager.GetComponentsInChildren<MonoBehaviour>(true);
             foreach (var c in mods)
             {
-                if (c.ToString() == "ModManager (PTconsole.ModHandler)") continue;    //this is stupid
+                if (c.ToString() == "ModManager (PTmod.ModHandler)") continue;    //this is stupid
                 c.enabled = false;
                 Debug.Log("Disabled mod " + c.ToString());
             }

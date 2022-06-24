@@ -46,6 +46,7 @@ namespace MapEditor
                     Console.Print(key);
                 }
             });
+            
             camspeed = new ConsoleCommand("camspeed", "set speed of freecam camera, default is 20", (string[] Args) =>
             {
                 FreeCam.CamSpeed = float.Parse(Args[0]);
