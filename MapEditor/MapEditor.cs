@@ -31,7 +31,7 @@ namespace MapEditor
 
         private void Awake()
         {
-            var harmony = new Harmony("com.moffel.mapeditor");
+            var harmony = new Harmony("moffel.mapeditor");
             harmony.PatchAll();
             Directory.CreateDirectory(Directory.GetCurrentDirectory() + "\\CustomMaps");
             CustomMapDir = Directory.GetCurrentDirectory() + "\\CustomMaps";

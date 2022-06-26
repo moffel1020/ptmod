@@ -77,7 +77,7 @@ namespace MapEditor
                 yield break;
             }
 
-            Debug.Log("Loading map " + filename);
+            Debug.Log("Loading map: " + filename);
 
             try
             {
