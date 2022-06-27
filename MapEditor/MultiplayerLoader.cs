@@ -70,18 +70,5 @@ namespace MapEditor
             var harmony = new Harmony("moffel.multiplayer");
             harmony.PatchAll();
         }
-
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.K))
-            {
-                StartGame("map1");
-            }
-
-            if (Input.GetKeyDown(KeyCode.M))
-            {
-                Debug.Log("View ID: " + photonView.ViewID);
-            }
-        }
     }
 }
