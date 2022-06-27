@@ -14,13 +14,13 @@ namespace MapEditor
     [HarmonyPatch(typeof(PhotonRoom), "RPC_CreatePlayer")]
     class LoadedScenePatch
     {
-        public static void Postfix()
+        public static void Prefix()
         {
             var Loader = MultiplayerLoader.multiplayerLoader;
             if (Loader.mapToLoad == null)
                 return;
             
-            Loader.StartCoroutine(SaveSystem.LoadMap(Loader.mapToLoad));
+            Loader.StartCoroutine(SaveSystem.LoadMap(Loader.mapToLoad, false));
             Loader.mapToLoad = null;
         }
     }

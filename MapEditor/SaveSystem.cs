@@ -69,7 +69,7 @@ namespace MapEditor
         }
 
 
-        public static IEnumerator LoadMap(string filename)
+        public static IEnumerator LoadMap(string filename, bool loadNewScene=true)
         {
             if (!File.Exists(MapEditor.CustomMapDir + "\\" + filename + ".txt"))
             {
@@ -82,12 +82,12 @@ namespace MapEditor
             try
             {
                 int sceneNumber = int.Parse(File.ReadLines($"{MapEditor.CustomMapDir}\\{filename}.txt").First());
-                SceneManager.LoadScene(sceneNumber);
+                if (loadNewScene) SceneManager.LoadScene(sceneNumber);
             }
             catch 
             {
                 Debug.LogError("could not find scene number in file, loading scene 1 instead");
-                SceneManager.LoadScene(1);
+                if (loadNewScene) SceneManager.LoadScene(1);
             }
             
             yield return new WaitForEndOfFrame();
