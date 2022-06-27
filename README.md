@@ -34,7 +34,7 @@ Editing and saving existing maps is not supported, so make a new map or load one
 - reach \<value\>       set from how far you can edit objects, default is 35
 
 #### multiplayer
-When in a private match lobby, load a map from the upper right menu as you usually would. Both players must have the exact same map(with the same file name) installed for this to work. If everything goes right you should be able to play custom maps in multiplayer. You cannot (yet?) edit maps with eachother in multiplayer.
+When in a private match lobby, the host can load a map from the menu in the upper right corner. Both players must have the exact same map(with the same file name) installed for this to work. If everything goes right you should be able to play custom maps in multiplayer. You cannot (yet?) edit maps with eachother in multiplayer.
 
 ### Console
 - use command "help" to show a list of available commands
