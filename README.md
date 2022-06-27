@@ -33,8 +33,8 @@ Editing and saving existing maps is not supported, so make a new map or load one
 - highlight \<R\> \<G\> \<B\>     change the color of highlighted objects, rgb values are between 0 and 1
 - reach \<value\>       set from how far you can edit objects, default is 35
 
-#### multiplayer (scuffed)
-go into a private match with another player, start a game on a random map. Make sure both players have the map installed and type "loadmap \<mapname\>" in console. You should now be able to play on custom maps with eachother. It is not (yet?) possible to edit a map with eachother in real time.
+#### multiplayer
+When in a private match lobby, load a map from the upper right menu as you usually would. Both players must have the exact same map(with the same file name) installed for this to work. If everything goes right you should be able to play custom maps in multiplayer. You cannot (yet?) edit maps with eachother in multiplayer.
 
 ### Console
 - use command "help" to show a list of available commands
