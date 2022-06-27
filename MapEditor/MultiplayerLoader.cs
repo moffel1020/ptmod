@@ -34,13 +34,13 @@ namespace MapEditor
         public string mapToLoad;
 
         [PunRPC]
-        public void RPC_SetMapName(string filename)
+        private void RPC_SetMapName(string filename)
         {
             Debug.Log("Loading map in multiplayer");
             mapToLoad = filename;
         }
 
-        private void StartGame(string filename)
+        public void StartGame(string filename)
         {
             
             settings = GameObject.FindObjectOfType<MultiplayerSettings>();

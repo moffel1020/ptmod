@@ -55,6 +55,9 @@
     <Reference Include="Photon3Unity3D.dll">
       <HintPath>$(pt_location)Parkour Tag_Data\Managed\Photon3Unity3D.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.UIModule.dll">
+      <HintPath>$(pt_location)Parkour Tag_Data\Managed\UnityEngine.UIModule.dll</HintPath>
+    </Reference>
   </ItemGroup>
   
   <ItemGroup>
