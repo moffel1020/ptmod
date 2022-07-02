@@ -75,6 +75,8 @@ namespace MapEditor
             }
 
             GUI.TextArea(new Rect(0f, 0f, 100f, 100f), maps.ToString());
+
+            GUI.EndGroup();
         }
 
         private void MainMenuUI()
