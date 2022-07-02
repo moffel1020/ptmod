@@ -19,15 +19,17 @@ namespace MapEditor
         private static ConsoleCommand setEditReach;
         private static ConsoleCommand printrefs;
         private static ConsoleCommand camspeed;
+        private static ConsoleCommand refreshmaps;
         
         internal void Register()
         {
             showmaps = new ConsoleCommand("showmaps", "print all map names in CustomMaps", (string [] Args) => PrintMaps());
             clearmap = new ConsoleCommand("clearmap", "clear the arena map", (string[] Args) => SaveSystem.ClearMap());
-            loadmap = new ConsoleCommand("loadmap", "load a map by name", (string[] Args) => StartCoroutine(SaveSystem.LoadMap(Args[0])), "loadmap <custom map name>");
+            loadmap = new ConsoleCommand("loadmap", "load a map by name (singleplayer)", (string[] Args) => StartCoroutine(SaveSystem.LoadMap(Args[0])), "loadmap <custom map name>");
             savemap = new ConsoleCommand("savemap", "save current map to a file with a given name", (string[] Args) => SaveSystem.SaveMap(Args[0]), "savemap <custom map name>");
             setEditReach = new ConsoleCommand("reach", "set map editor reach to edit gameobjects, default is 35", (string[] Args) => MapEditor.editReach = float.Parse(Args[0]), "reach <amount>");
             printGoInfo = new ConsoleCommand("print", "print the info of a gameobject", (string[] Args) => PrintGameObjectInfo(Args[0]), "print <gameobject name>");
+            refreshmaps = new ConsoleCommand("refreshmaps", "refresh available map list", (string[] Args) => Menu.RefreshMapArray());
             setHighlightColor = new ConsoleCommand("highlight", "change the color of map editor object highlight", (string[] Args) =>
             {
                 MapEditor.highlightColor = new Color(float.Parse(Args[0]), float.Parse(Args[1]), float.Parse(Args[2]));

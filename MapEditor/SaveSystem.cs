@@ -178,5 +178,15 @@ namespace MapEditor
 
             return null;
         }
+
+        public static List<string> GetMapNames()
+        {
+            List<string> mapList = new List<string>();
+            foreach (string file in Directory.GetFiles(MapEditor.CustomMapDir))
+            {
+                mapList.Add(Path.GetFileNameWithoutExtension(file));
+            }
+            return mapList;
+        }
     }
 }

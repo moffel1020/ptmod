@@ -12,7 +12,7 @@ namespace MapEditor
 
 
     [HarmonyPatch(typeof(PhotonRoom), "RPC_CreatePlayer")]
-    class LoadedScenePatch
+    class CreatePlayerPatch
     {
         public static void Prefix()
         {
@@ -36,7 +36,7 @@ namespace MapEditor
         [PunRPC]
         private void RPC_SetMapName(string filename)
         {
-            Debug.Log("Loading map in multiplayer");
+            Debug.Log("Set multiplayer map load to: " + filename);
             mapToLoad = filename;
         }
 
