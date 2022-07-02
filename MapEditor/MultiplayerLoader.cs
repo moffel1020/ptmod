@@ -29,7 +29,7 @@ namespace MapEditor
     [PTmodLoad]
     public class MultiplayerLoader : MonoBehaviourPunCallbacks
     {
-        public static MultiplayerLoader multiplayerLoader { get; set; }
+        public static MultiplayerLoader multiplayerLoader { get; private set; }
         private MultiplayerSettings settings;
         public string mapToLoad;
 
